@@ -1,5 +1,5 @@
-import MenuBar from "../components/layout/MenuBar.jsx";
-import Window from "../components/window/Window.jsx";
+import MenuBar from "../components/layout/MenuBar";
+import Window from "../components/window/Window";
 
 const Desktop = () => {
   return (
