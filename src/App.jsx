@@ -1,9 +1,11 @@
-function App() {
+import Desktop from "./pages/Desktop";
+
+const App = () => {
   return (
     <>
-      <h1 className="text-3xl text-blue-800">Hello</h1>
+      <Desktop />
     </>
   );
-}
+};
 
 export default App;
