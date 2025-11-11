@@ -1,4 +1,5 @@
 import MenuBar from "../components/layout/MenuBar.jsx";
+import Window from "../components/window/Window.jsx";
 
 const Desktop = () => {
   return (
@@ -9,7 +10,9 @@ const Desktop = () => {
         style={{
           backgroundImage: `linear-gradient(to bottom,#A8E6CF,#6DD5ED)`,
         }}
-      ></div>
+      >
+        <Window />
+      </div>
     </div>
   );
 };
