@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "DOSGothic";
+  src: url("./assets/fonts/DOSGothic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

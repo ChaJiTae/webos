@@ -24,7 +24,7 @@ const MenuBar = () => {
   return (
     <header className="flex justify-between items-center p-2 bg-[#2d2d2d] text-white ">
       <nav className="flex items-center gap-6">
-        <div className="text-lg font-bold">JT OS</div>
+        <div className="text-lg font-bold font-dosgothic">JT OS</div>
         <div>File</div>
         <div>Edit</div>
         <div>View</div>

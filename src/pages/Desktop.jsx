@@ -11,7 +11,7 @@ const Desktop = () => {
   const backgroundRandomIndex = Math.floor(Math.random() * background.length);
 
   return (
-    <div className="fixed inset-0 flex flex-col overflow-hidden">
+    <div className="fixed inset-0 flex flex-col overflow-hidden font-dosgothic">
       <MenuBar />
       <div
         className="relative flex-1 bg-center bg-cover"
