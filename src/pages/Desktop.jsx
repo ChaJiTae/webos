@@ -5,6 +5,7 @@ import ProcessLauncher from "../components/ProcessLauncher/ProcessLauncher";
 import GrayBackground from "../assets/backgroundImage/Gray_Background.png";
 import LightBackground from "../assets/backgroundImage/Light_Background.png";
 import AppleBackground from "../assets/backgroundImage/Apple_Background.jpg";
+import BlueGradientBackground from "../assets/backgroundImage/BlueGradient_Background.jpg";
 
 import CalculateIcon from "../assets/processIcon/calculate.png";
 import LottoIcon from "../assets/processIcon/lotto.png";
@@ -12,7 +13,12 @@ import RacingIcon from "../assets/processIcon/racing.png";
 import TerminalIcon from "../assets/processIcon/Terminal.png";
 import NotepadIcon from "../assets/processIcon/notepad.png";
 
-const background = [GrayBackground, LightBackground, AppleBackground];
+const background = [
+  GrayBackground,
+  LightBackground,
+  AppleBackground,
+  BlueGradientBackground,
+];
 
 const Desktop = () => {
   const backgroundRandomIndex = Math.floor(Math.random() * background.length);
