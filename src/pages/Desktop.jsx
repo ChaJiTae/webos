@@ -40,7 +40,7 @@ const Desktop = () => {
           backgroundImage: `url(${background[backgroundRandomIndex]})`,
         }}
       >
-        <div className="grid grid-[repeat(auto-fill,5rem)] gap-4 p-4">
+        <div className="absolute top-0 left-0 flex flex-col gap-4 p-4 ">
           {desktopIcons.map((application, index) => (
             <DesktopIcon
               key={index}
