@@ -13,7 +13,7 @@ const Window = ({ id, children, title, icon, onClose }) => {
 
   return (
     <div
-      className="absolute bg-white rounded-xl"
+      className="absolute flex flex-col bg-white rounded-xl"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
@@ -29,8 +29,9 @@ const Window = ({ id, children, title, icon, onClose }) => {
         onClose={onClose}
       />
       <main
-        className="relative w-full h-full rounded-b-xl"
+        className="relative flex-1 rounded-b-xl"
         style={{
+          height: "calc(100% - 40px)",
           overflow: "hidden",
         }}
       >
