@@ -40,11 +40,11 @@ export const useWindowHooks = ({ initialPosition, initialSize }) => {
     const deltaY = e.clientY - resizeStartRef.current.startY;
 
     const newWidth = Math.max(
-      300,
+      500,
       resizeStartRef.current.initialWidth + deltaX
     );
     const newHeight = Math.max(
-      200,
+      300,
       resizeStartRef.current.initialHeight + deltaY
     );
     setSize({
