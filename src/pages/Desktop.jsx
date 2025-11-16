@@ -1,13 +1,28 @@
 import MenuBar from "../components/layout/MenuBar";
+import DesktopIcon from "../components/Desktop/DesktopIcon";
+import ProcessLauncher from "../components/ProcessLauncher/ProcessLauncher";
 
 import GrayBackground from "../assets/backgroundImage/Gray_Background.png";
-import DarkBackground from "../assets/backgroundImage/Dark_Background.png";
 import LightBackground from "../assets/backgroundImage/Light_Background.png";
 
-const background = [GrayBackground, DarkBackground, LightBackground];
+import CalculateIcon from "../assets/processIcon/calculate.png";
+import LottoIcon from "../assets/processIcon/lotto.png";
+import RacingIcon from "../assets/processIcon/racing.png";
+import TerminalIcon from "../assets/processIcon/Terminal.png";
+import NotepadIcon from "../assets/processIcon/notepad.png";
+
+const background = [GrayBackground, LightBackground];
 
 const Desktop = () => {
   const backgroundRandomIndex = Math.floor(Math.random() * background.length);
+
+  const desktopIcons = [
+    { icon: CalculateIcon, label: "Calculate", processName: "Calculate" },
+    { icon: LottoIcon, label: "Lotto", processName: "Lotto" },
+    { icon: RacingIcon, label: "Racing", processName: "Racing" },
+    { icon: TerminalIcon, label: "Terminal", processName: "Terminal" },
+    { icon: NotepadIcon, label: "Notepad", processName: "Notepad" },
+  ];
 
   return (
     <div className="fixed inset-0 flex flex-col overflow-hidden font-dosgothic">
@@ -17,7 +32,19 @@ const Desktop = () => {
         style={{
           backgroundImage: `url(${background[backgroundRandomIndex]})`,
         }}
-      ></div>
+      >
+        <div className="grid grid-[repeat(auto-fill,5rem)] gap-4 p-4">
+          {desktopIcons.map((application, index) => (
+            <DesktopIcon
+              key={index}
+              icon={application.icon}
+              label={application.label}
+              processName={application.processName}
+            />
+          ))}
+        </div>
+        <ProcessLauncher />
+      </div>
     </div>
   );
 };
