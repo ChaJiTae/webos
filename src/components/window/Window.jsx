@@ -28,7 +28,7 @@ const Window = ({ id, children, title, icon, onClose }) => {
         onMouseDown={handleDragMouseDown}
         onClose={onClose}
       />
-      <main>{children}</main>
+      <main className="h-[calc(100%-40px)]">{children}</main>
       <div
         className="absolute bottom-0 right-0 w-0 h-0 cursor-se-resize"
         onMouseDown={handleResizeMouseDown}
