@@ -13,7 +13,6 @@ const Window = ({ id, children, title }) => {
   return (
     <div
       className="absolute bg-white rounded-xl"
-      onMouseDown={handleDragMouseDown}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,

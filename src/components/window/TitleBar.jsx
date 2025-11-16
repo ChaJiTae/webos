@@ -2,10 +2,17 @@ import WindowMaxIcon from "/src/assets/windowIcon/window-max.svg";
 import WindowMinIcon from "/src/assets/windowIcon/window-min.svg";
 import WindowCloseIcon from "/src/assets/windowIcon/window-close.svg";
 
-const TitleBar = ({ icon, title }) => {
+const TitleBar = ({ icon, title, onMouseDown }) => {
+  const handleButtonClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <header className="relative w-full flex justify-between items-center p-2 rounded-t-xl bg-[#5d5d5d] cursor-move">
-      <div className="flex items-center gap-2">
+    <header
+      className="relative w-full flex justify-between items-center p-2 rounded-t-xl bg-[#5d5d5d] cursor-move"
+      onMouseDown={onMouseDown}
+    >
+      <div className="flex items-center gap-2" onMouseDown={handleButtonClick}>
         <div className="cursor-pointer w-4 h-4 rounded-2xl bg-[#ff5a51] flex justify-center items-center">
           <img src={WindowCloseIcon} alt="Close" className="w-2 h-2" />
         </div>
