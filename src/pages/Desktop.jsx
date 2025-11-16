@@ -1,5 +1,4 @@
 import MenuBar from "../components/layout/MenuBar";
-import Window from "../components/window/Window";
 
 import GrayBackground from "../assets/backgroundImage/Gray_Background.png";
 import DarkBackground from "../assets/backgroundImage/Dark_Background.png";
@@ -18,9 +17,7 @@ const Desktop = () => {
         style={{
           backgroundImage: `url(${background[backgroundRandomIndex]})`,
         }}
-      >
-        <Window />
-      </div>
+      ></div>
     </div>
   );
 };
