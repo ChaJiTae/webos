@@ -6,7 +6,7 @@ import Calculate from "../Process/Calculate";
 import Lotto from "../Process/Lotto";
 import Racing from "../Process/Racing";
 import Terminal from "../Process/Terminal";
-import Notepad from "../Process/Notepad";
+import Notepad from "../Process/NotePad";
 
 import CalculateIcon from "../../assets/processIcon/calculate.png";
 import LottoIcon from "../../assets/processIcon/lotto.png";
