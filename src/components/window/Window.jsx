@@ -28,6 +28,16 @@ const Window = ({ id, children, title }) => {
         onMouseDown={handleDragMouseDown}
       />
       <main>{children}</main>
+      <div
+        className="absolute bottom-0 right-0 w-0 h-0 cursor-se-resize"
+        style={{
+          borderBottom: "10px solid #2d2d2d",
+          borderLeft: "10px solid transparent",
+          borderTop: "10px solid transparent",
+          borderRight: "10px solid #2d2d2d",
+          borderBottomRightRadius: "0.75rem",
+        }}
+      ></div>
     </div>
   );
 };
