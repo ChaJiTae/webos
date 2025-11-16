@@ -1,0 +1,5 @@
+const Calculate = () => {
+  return <div className="w-full h-full p-4"></div>;
+};
+
+export default Calculate;
