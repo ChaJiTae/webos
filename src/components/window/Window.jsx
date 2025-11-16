@@ -6,9 +6,11 @@ const INITIAL_WIDTH = 500;
 const INITIAL_HEIGHT = 300;
 
 const Window = ({ id, children, title }) => {
-  const { position, handleDragMouseDown } = useWindowHooks({
-    initialPosition: { x: 100, y: 100 },
-  });
+  const { position, handleDragMouseDown, size, handleResizeMouseDown } =
+    useWindowHooks({
+      initialPosition: { x: 100, y: 100 },
+      initialSize: { width: INITIAL_WIDTH, height: INITIAL_HEIGHT },
+    });
 
   return (
     <div
@@ -16,8 +18,8 @@ const Window = ({ id, children, title }) => {
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        width: `${INITIAL_WIDTH}px`,
-        height: `${INITIAL_HEIGHT}px`,
+        width: `${size.width}px`,
+        height: `${size.height}px`,
       }}
     >
       <TitleBar
@@ -29,6 +31,7 @@ const Window = ({ id, children, title }) => {
       <main>{children}</main>
       <div
         className="absolute bottom-0 right-0 w-0 h-0 cursor-se-resize"
+        onMouseDown={handleResizeMouseDown}
         style={{
           borderBottom: "10px solid #2d2d2d",
           borderLeft: "10px solid transparent",
