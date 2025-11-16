@@ -28,18 +28,25 @@ const Window = ({ id, children, title, icon, onClose }) => {
         onMouseDown={handleDragMouseDown}
         onClose={onClose}
       />
-      <main className="h-[calc(100%-40px)]">{children}</main>
-      <div
-        className="absolute bottom-0 right-0 w-0 h-0 cursor-se-resize"
-        onMouseDown={handleResizeMouseDown}
+      <main
+        className="relative w-full h-full rounded-b-xl"
         style={{
-          borderBottom: "10px solid #2d2d2d",
-          borderLeft: "10px solid transparent",
-          borderTop: "10px solid transparent",
-          borderRight: "10px solid #2d2d2d",
-          borderBottomRightRadius: "0.75rem",
+          overflow: "hidden",
         }}
-      ></div>
+      >
+        {children}
+        <div
+          className="absolute bottom-0 right-0 w-0 h-0 cursor-se-resize"
+          onMouseDown={handleResizeMouseDown}
+          style={{
+            borderBottom: "10px solid #2d2d2d",
+            borderLeft: "10px solid transparent",
+            borderTop: "10px solid transparent",
+            borderRight: "10px solid #2d2d2d",
+            borderBottomRightRadius: "0.75rem",
+          }}
+        ></div>
+      </main>
     </div>
   );
 };
