@@ -1,11 +1,10 @@
 import TitleBar from "./TitleBar";
-import ProcessIcon from "/src/assets/processicon.jpg";
 import { useWindowHooks } from "./../../hooks/useWindowHooks";
 
 const INITIAL_WIDTH = 500;
 const INITIAL_HEIGHT = 300;
 
-const Window = ({ id, children, title }) => {
+const Window = ({ id, children, title, icon, onClose }) => {
   const { position, handleDragMouseDown, size, handleResizeMouseDown } =
     useWindowHooks({
       initialPosition: { x: 100, y: 100 },
@@ -24,9 +23,10 @@ const Window = ({ id, children, title }) => {
     >
       <TitleBar
         id={id}
-        icon={ProcessIcon}
+        icon={icon}
         title={title}
         onMouseDown={handleDragMouseDown}
+        onClose={onClose}
       />
       <main>{children}</main>
       <div
