@@ -1,4 +1,5 @@
 import WindowMaxIcon from "/src/assets/windowIcon/window-max.svg";
+import WindowMaxCancelIcon from "/src/assets/windowIcon/window-max-cancel.svg";
 import WindowMinIcon from "/src/assets/windowIcon/window-min.svg";
 import WindowCloseIcon from "/src/assets/windowIcon/window-close.svg";
 
@@ -48,7 +49,15 @@ const TitleBar = ({
           className="cursor-pointer w-4 h-4 rounded-2xl bg-[#27c93f] flex justify-center items-center"
           onClick={handleMaximize}
         >
-          <img src={WindowMaxIcon} alt="Maximize" className="w-3 h-3" />
+          {!isMaximized ? (
+            <img src={WindowMaxIcon} alt="Maximize" className="w-3 h-3" />
+          ) : (
+            <img
+              src={WindowMaxCancelIcon}
+              alt="Maximize Cancel"
+              className="w-3 h-3"
+            />
+          )}
         </div>
       </div>
       <div className="absolute flex items-center gap-2 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
