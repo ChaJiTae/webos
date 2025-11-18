@@ -1,5 +1,6 @@
 import TitleBar from "./TitleBar";
 import { useWindowHooks } from "./../../hooks/useWindowHooks";
+import { useProcessStore } from "../../store/processStore";
 
 const INITIAL_WIDTH = 500;
 const INITIAL_HEIGHT = 300;
@@ -11,42 +12,69 @@ const Window = ({ id, children, title, icon, onClose }) => {
       initialSize: { width: INITIAL_WIDTH, height: INITIAL_HEIGHT },
     });
 
-  return (
-    <div
-      className="absolute flex flex-col bg-white border-2 border-black rounded-xl"
-      style={{
+  const processes = useProcessStore((state) =>
+    state.processes.find((process) => process.id === id)
+  );
+  const maximizeProcess = useProcessStore((state) => state.maximizeProcess);
+  const unmaximizeProcess = useProcessStore((state) => state.unmaximizeProcess);
+
+  const handleMaximize = () => {
+    if (processes?.isMaximized) unmaximizeProcess(id);
+    else maximizeProcess(id);
+  };
+
+  const windowStyle = processes?.isMaximized
+    ? {
+        left: 0,
+        width: "100vw",
+        height: `calc(100vh)`,
+        zIndex: 10,
+      }
+    : {
         left: `${position.x}px`,
         top: `${position.y}px`,
         width: `${size.width}px`,
         height: `${size.height}px`,
+        zIndex: 1,
+      };
+
+  return (
+    <div
+      className="absolute flex flex-col bg-white border-2 border-black rounded-xl"
+      style={{
+        ...windowStyle,
       }}
     >
       <TitleBar
         id={id}
         icon={icon}
         title={title}
-        onMouseDown={handleDragMouseDown}
+        onMouseDown={processes?.isMaximized ? undefined : handleDragMouseDown}
         onClose={onClose}
+        onMaximize={handleMaximize}
+        isMaximized={processes?.isMaximized}
       />
       <main
         className="relative flex-1 rounded-b-xl"
         style={{
-          height: "calc(100% - 40px)",
+          height: `calc(100%)`,
           overflow: "hidden",
         }}
       >
         {children}
-        <div
-          className="absolute bottom-0 right-0 w-0 h-0 cursor-se-resize"
-          onMouseDown={handleResizeMouseDown}
-          style={{
-            borderBottom: "10px solid #2d2d2d",
-            borderLeft: "10px solid transparent",
-            borderTop: "10px solid transparent",
-            borderRight: "10px solid #2d2d2d",
-            borderBottomRightRadius: "0.75rem",
-          }}
-        ></div>
+        {!processes?.isMaximized && (
+          <div
+            className="absolute bottom-0 right-0 w-0 h-0 cursor-se-resize"
+            onMouseDown={handleResizeMouseDown}
+            style={{
+              borderBottom: "10px solid #2d2d2d",
+              borderLeft: "10px solid transparent",
+              borderTop: "10px solid transparent",
+              borderRight: "10px solid #2d2d2d",
+              borderBottomRightRadius: "0.75rem",
+            }}
+          ></div>
+        )}
       </main>
     </div>
   );

@@ -10,7 +10,7 @@ export const useProcessStore = create((set) => ({
     const newProcess = {
       id,
       name: processName,
-      isMinimized: false,
+      isMaximized: false,
     };
     set((state) => ({
       processes: [...state.processes, newProcess],
@@ -20,6 +20,22 @@ export const useProcessStore = create((set) => ({
   closeProcess: (id) => {
     set((state) => ({
       processes: state.processes.filter((process) => process.id !== id),
+    }));
+  },
+
+  maximizeProcess: (id) => {
+    set((state) => ({
+      processes: state.processes.map((process) =>
+        process.id === id ? { ...process, isMaximized: true } : process
+      ),
+    }));
+  },
+
+  unmaximizeProcess: (id) => {
+    set((state) => ({
+      processes: state.processes.map((process) =>
+        process.id === id ? { ...process, isMaximized: false } : process
+      ),
     }));
   },
 }));

@@ -2,7 +2,14 @@ import WindowMaxIcon from "/src/assets/windowIcon/window-max.svg";
 import WindowMinIcon from "/src/assets/windowIcon/window-min.svg";
 import WindowCloseIcon from "/src/assets/windowIcon/window-close.svg";
 
-const TitleBar = ({ icon, title, onMouseDown, onClose }) => {
+const TitleBar = ({
+  icon,
+  title,
+  onMouseDown,
+  onClose,
+  onMaximize,
+  isMaximized,
+}) => {
   const handleButtonClick = (e) => {
     e.stopPropagation();
   };
@@ -12,10 +19,20 @@ const TitleBar = ({ icon, title, onMouseDown, onClose }) => {
     if (onClose) onClose();
   };
 
+  const handleMaximize = (e) => {
+    e.stopPropagation();
+    if (onMaximize) onMaximize();
+  };
+
   return (
     <header
       className="border-b-2 border-black relative w-full flex justify-between items-center p-2 rounded-t-xl bg-[#9b9b9b] cursor-move"
       onMouseDown={onMouseDown}
+      style={{
+        borderTopLeftRadius: isMaximized ? "0" : "0.75rem",
+        borderTopRightRadius: isMaximized ? "0" : "0.75rem",
+        cursor: isMaximized ? "default" : "move",
+      }}
     >
       <div className="flex items-center gap-2" onMouseDown={handleButtonClick}>
         <div
@@ -27,7 +44,10 @@ const TitleBar = ({ icon, title, onMouseDown, onClose }) => {
         <div className="cursor-pointer w-4 h-4 rounded-2xl bg-[#ffbd2e] flex justify-center items-center">
           <img src={WindowMinIcon} alt="Minimize" className="w-3 h-3" />
         </div>
-        <div className="cursor-pointer w-4 h-4 rounded-2xl bg-[#27c93f] flex justify-center items-center">
+        <div
+          className="cursor-pointer w-4 h-4 rounded-2xl bg-[#27c93f] flex justify-center items-center"
+          onClick={handleMaximize}
+        >
           <img src={WindowMaxIcon} alt="Maximize" className="w-3 h-3" />
         </div>
       </div>
