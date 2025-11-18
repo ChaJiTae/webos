@@ -14,7 +14,7 @@ const TitleBar = ({ icon, title, onMouseDown, onClose }) => {
 
   return (
     <header
-      className="relative w-full flex justify-between items-center p-2 rounded-t-xl bg-[#9b9b9b] cursor-move"
+      className="border-b-2 border-black relative w-full flex justify-between items-center p-2 rounded-t-xl bg-[#9b9b9b] cursor-move"
       onMouseDown={onMouseDown}
     >
       <div className="flex items-center gap-2" onMouseDown={handleButtonClick}>
