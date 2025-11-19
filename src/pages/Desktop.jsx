@@ -1,6 +1,7 @@
 import MenuBar from "../components/layout/MenuBar";
 import DesktopIcon from "../components/Desktop/DesktopIcon";
 import ProcessLauncher from "../components/ProcessLauncher/ProcessLauncher";
+import Dock from "../components/Dock/Dock";
 
 import GrayBackground from "../assets/backgroundImage/Gray_Background.png";
 import LightBackground from "../assets/backgroundImage/Light_Background.png";
@@ -51,6 +52,7 @@ const Desktop = () => {
           ))}
         </div>
         <ProcessLauncher />
+        <Dock />
       </div>
     </div>
   );
