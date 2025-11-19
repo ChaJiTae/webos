@@ -8,7 +8,7 @@ const DesktopIcon = ({ icon, label, processName }) => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center rounded-md cursor-pointer w-25 h-25 hover:bg-white/40"
+      className="flex flex-col items-center justify-center rounded-md cursor-pointer select-none w-25 h-25 hover:bg-white/40"
       onClick={handleClick}
     >
       <div className="flex items-center justify-center w-20 h-20 rounded ">
