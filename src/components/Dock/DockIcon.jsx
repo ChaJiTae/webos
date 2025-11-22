@@ -1,4 +1,4 @@
-export const DockIcon = ({ icon, label, isMinimized, onClick }) => {
+export const DockIcon = ({ icon, label, isMinimized, onClick, isLink }) => {
   return (
     <div className="relative flex flex-col items-center">
       <div
@@ -6,7 +6,7 @@ export const DockIcon = ({ icon, label, isMinimized, onClick }) => {
         onClick={onClick}
       >
         <img src={icon} alt={label} className="object-contain w-full h-full" />
-        {!isMinimized && (
+        {!isMinimized && !isLink && (
           <div className="absolute w-2 h-2 transform -translate-x-1/2 rounded-full bg-black/50 -bottom-6 left-1/2"></div>
         )}
       </div>
