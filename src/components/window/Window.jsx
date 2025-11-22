@@ -1,4 +1,5 @@
 import TitleBar from "./TitleBar";
+
 import { useWindowHooks } from "./../../hooks/useWindowHooks";
 import { useProcessStore } from "../../store/processStore";
 
@@ -17,10 +18,15 @@ const Window = ({ id, children, title, icon, onClose }) => {
   );
   const maximizeProcess = useProcessStore((state) => state.maximizeProcess);
   const unmaximizeProcess = useProcessStore((state) => state.unmaximizeProcess);
+  const minimizeProcess = useProcessStore((state) => state.minimizeProcess);
 
   const handleMaximize = () => {
     if (processes?.isMaximized) unmaximizeProcess(id);
     else maximizeProcess(id);
+  };
+
+  const handleMinimize = () => {
+    minimizeProcess(id);
   };
 
   const windowStyle = processes?.isMaximized
@@ -53,6 +59,7 @@ const Window = ({ id, children, title, icon, onClose }) => {
         onClose={onClose}
         onMaximize={handleMaximize}
         isMaximized={processes?.isMaximized}
+        onMinimize={handleMinimize}
       />
       <main
         className="relative flex-1 rounded-b-xl"

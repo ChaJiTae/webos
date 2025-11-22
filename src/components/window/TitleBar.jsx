@@ -10,6 +10,7 @@ const TitleBar = ({
   onClose,
   onMaximize,
   isMaximized,
+  onMinimize,
 }) => {
   const handleButtonClick = (e) => {
     e.stopPropagation();
@@ -23,6 +24,11 @@ const TitleBar = ({
   const handleMaximize = (e) => {
     e.stopPropagation();
     if (onMaximize) onMaximize();
+  };
+
+  const handleMinimize = (e) => {
+    e.stopPropagation();
+    if (onMinimize) onMinimize();
   };
 
   return (
@@ -42,7 +48,10 @@ const TitleBar = ({
         >
           <img src={WindowCloseIcon} alt="Close" className="w-2 h-2" />
         </div>
-        <div className="cursor-pointer w-4 h-4 rounded-2xl bg-[#ffbd2e] flex justify-center items-center">
+        <div
+          className="cursor-pointer w-4 h-4 rounded-2xl bg-[#ffbd2e] flex justify-center items-center"
+          onClick={handleMinimize}
+        >
           <img src={WindowMinIcon} alt="Minimize" className="w-3 h-3" />
         </div>
         <div

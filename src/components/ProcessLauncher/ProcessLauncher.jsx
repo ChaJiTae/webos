@@ -54,17 +54,19 @@ const ProcessLauncher = () => {
 
   return (
     <>
-      {processes.map((process) => (
-        <Window
-          key={process.id}
-          id={process.id}
-          title={process.name}
-          icon={getProcessIcon(process.name)}
-          onClose={() => closeProcess(process.id)}
-        >
-          {getProcessComponent(process.name)}
-        </Window>
-      ))}
+      {processes
+        .filter((process) => !process.isMinimized)
+        .map((process) => (
+          <Window
+            key={process.id}
+            id={process.id}
+            title={process.name}
+            icon={getProcessIcon(process.name)}
+            onClose={() => closeProcess(process.id)}
+          >
+            {getProcessComponent(process.name)}
+          </Window>
+        ))}
     </>
   );
 };
