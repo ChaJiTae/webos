@@ -27,7 +27,7 @@ const TitleBar = ({
 
   return (
     <header
-      className="border-b-2 border-black relative w-full flex justify-between items-center p-2 rounded-t-xl bg-[#9b9b9b] cursor-move"
+      className="border-b-2 border-black relative w-full flex justify-between items-center p-2 rounded-t-xl bg-[#9b9b9b] cursor-move select-none"
       onMouseDown={onMouseDown}
       style={{
         borderTopLeftRadius: isMaximized ? "0" : "0.75rem",

@@ -33,7 +33,7 @@ const Desktop = () => {
   ];
 
   return (
-    <div className="fixed inset-0 flex flex-col overflow-hidden font-dosgothic">
+    <div className="fixed inset-0 flex flex-col overflow-hidden select-none font-dosgothic">
       <MenuBar />
       <div
         className="relative flex-1 bg-center bg-cover"
