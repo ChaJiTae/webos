@@ -16,9 +16,11 @@ const Window = ({ id, children, title, icon, onClose }) => {
   const processes = useProcessStore((state) =>
     state.processes.find((process) => process.id === id)
   );
+
   const maximizeProcess = useProcessStore((state) => state.maximizeProcess);
   const unmaximizeProcess = useProcessStore((state) => state.unmaximizeProcess);
   const minimizeProcess = useProcessStore((state) => state.minimizeProcess);
+  const focusProcess = useProcessStore((state) => state.focusProcess);
 
   const handleMaximize = () => {
     if (processes?.isMaximized) unmaximizeProcess(id);
@@ -29,19 +31,23 @@ const Window = ({ id, children, title, icon, onClose }) => {
     minimizeProcess(id);
   };
 
+  const handleWindowFocus = () => {
+    focusProcess(id);
+  };
+
   const windowStyle = processes?.isMaximized
     ? {
         left: 0,
         width: "100vw",
         height: `calc(100vh)`,
-        zIndex: 10,
+        zIndex: processes?.zIndex,
       }
     : {
         left: `${position.x}px`,
         top: `${position.y}px`,
         width: `${size.width}px`,
         height: `${size.height}px`,
-        zIndex: 1,
+        zIndex: processes?.zIndex,
       };
 
   return (
@@ -50,6 +56,7 @@ const Window = ({ id, children, title, icon, onClose }) => {
       style={{
         ...windowStyle,
       }}
+      onMouseDown={handleWindowFocus}
     >
       <TitleBar
         id={id}
