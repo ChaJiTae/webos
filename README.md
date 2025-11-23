@@ -1,5 +1,8 @@
 # WEB OS
 
+## Figma
+- https://www.figma.com/design/IkGPQcxQ61OzxYHcH1VQfX/Mac-OS?node-id=0-1&p=f&t=ru5etxYzfHfc0Lqo-0
+
 ## 프로젝트 목표
 
 - 프로젝트 간단 설명 : "브라우저 안에서 경험하는 데스크탑 운영체제" : 사용자가 주도적으로 창을 제어하는 데스크탑 애플리케이션 경험을 웹 환경에서 구현하는 것을 목표로 했습니다.
