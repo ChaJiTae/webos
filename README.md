@@ -39,6 +39,9 @@
 |  Style  | Tailwind CSS |  동적인 스타일링 일관된 디자인 시스템  |
 |  Build  |     Vite     |          빠른 개발 환경 구축           |
 
+## 프로젝트 미구현 사항
+- 프로세스(Lotto,Calculate,Racing,Terminal)
+
 ## 디렉토리 구조
 
 ```
