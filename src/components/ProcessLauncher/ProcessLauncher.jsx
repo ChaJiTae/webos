@@ -2,11 +2,11 @@ import { useProcessStore } from "../../store/processStore";
 
 import Window from "../window/Window";
 
-import Calculate from "../Process/Calculate";
-import Lotto from "../Process/Lotto";
-import Racing from "../Process/Racing";
-import Terminal from "../Process/Terminal";
-import Notepad from "../Process/NotePad";
+import Calculate from "../Process/Calculate/Calculate";
+import Lotto from "../Process/Lotto/Lotto";
+import Racing from "../Process/Racing/Racing";
+import Terminal from "../Process/Terminal/Terminal";
+import Notepad from "../Process/NotePad/NotePad";
 
 import CalculateIcon from "../../assets/processIcon/calculate.png";
 import LottoIcon from "../../assets/processIcon/lotto.png";
